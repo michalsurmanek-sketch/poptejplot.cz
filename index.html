@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>poptejplot.cz – Poptávky na ploty, brány a oplocení</title>
+  <meta name="description" content="Zadejte poptávku na plot – oslovíme ověřené firmy ve vašem okolí a získáte až 5 nabídek zdarma. Betonové, gabionové, dřevěné, WPC i hliníkové ploty.">
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Roboto', 'ui-sans-serif', 'system-ui'] },
+          colors: {
+            brand: {
+              DEFAULT: '#0ea5e9',
+              dark: '#0284c7',
+              light: '#38bdf8'
+            }
+          },
+          boxShadow: {
+            soft: '0 10px 25px rgba(2,132,199,0.12)'
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    /* Focus rings for accessibility */
+    :focus-visible { outline: 3px solid #0ea5e9; outline-offset: 2px; }
+  </style>
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "poptejplot.cz",
+    "url": "https://www.poptejplot.cz/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.poptejplot.cz/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <!-- Top bar -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="#top" class="flex items-center gap-3">
+          <div class="p-2 rounded-xl bg-brand/10 text-brand shadow-soft" aria-hidden="true">
+            <!-- Simple fence logo -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="">
+              <path d="M4 20V7l2-2 2 2v13"/>
+              <path d="M10 20V7l2-2 2 2v13"/>
+              <path d="M16 20V7l2-2 2 2v13"/>
+              <path d="M4 12h16M4 16h16"/>
+            </svg>
+          </div>
+          <div class="leading-tight">
+            <div class="text-xl font-black tracking-tight">poptejplot<span class="text-brand">.cz</span></div>
+            <div class="text-xs text-slate-500">Poptávky na ploty a oplocení</div>
+          </div>
+        </a>
+        <nav class="hidden md:flex items-center gap-6" aria-label="Hlavní navigace">
+          <a href="#formular" class="hover:text-brand">Zadat poptávku</a>
+          <a href="#typy" class="hover:text-brand">Typy plotů</a>
+          <a href="#jak" class="hover:text-brand">Jak to funguje</a>
+          <a href="#firmy" class="hover:text-brand">Pro firmy</a>
+          <a href="#faq" class="hover:text-brand">FAQ</a>
+        </nav>
+        <div class="hidden md:block">
+          <a href="#formular" class="inline-flex items-center gap-2 rounded-xl bg-brand px-4 py-2 font-semibold text-white shadow-soft hover:bg-brand-dark focus-visible:outline-none"> 
+            <span id="cta-icon" class="inline-block" aria-hidden="true"></span>
+            <span>Chci nabídky zdarma</span>
+          </a>
+        </div>
+        <!-- Mobile -->
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-slate-200" aria-controls="mobileMenu" aria-expanded="false" aria-label="Otevřít menu">
+          <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-slate-200 bg-white">
+      <nav class="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-2" aria-label="Mobilní menu">
+        <a href="#formular" class="py-2">Zadat poptávku</a>
+        <a href="#typy" class="py-2">Typy plotů</a>
+        <a href="#jak" class="py-2">Jak to funguje</a>
+        <a href="#firmy" class="py-2">Pro firmy</a>
+        <a href="#faq" class="py-2">FAQ</a>
+        <a href="#formular" class="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-brand px-4 py-2 font-semibold text-white shadow-soft hover:bg-brand-dark">Chci nabídky zdarma</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="top" class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand/10 via-transparent to-brand/5 pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">Zadejte poptávku na plot a získejte <span class="text-brand">až 5 nabídek</span> zdarma</h1>
+        <p class="mt-4 text-slate-600 text-base sm:text-lg">Oslovíme ověřené firmy ve vašem okolí – betonové, gabionové, dřevěné, WPC i hliníkové ploty. Srovnáte ceny, termíny i realizace na jednom místě.</p>
+        <ul class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+          <li class="flex items-center gap-2"><span class="i-check" aria-hidden="true"></span> Zdarma a nezávazně</li>
+          <li class="flex items-center gap-2"><span class="i-check" aria-hidden="true"></span> Ověřené firmy</li>
+          <li class="flex items-center gap-2"><span class="i-check" aria-hidden="true"></span> Šetří čas i peníze</li>
+          <li class="flex items-center gap-2"><span class="i-check" aria-hidden="true"></span> Reálné reference</li>
+        </ul>
+        <div class="mt-8 flex flex-col sm:flex-row gap-3">
+          <a href="#formular" class="inline-flex items-center justify-center gap-2 rounded-xl bg-brand px-5 py-3 font-semibold text-white shadow-soft hover:bg-brand-dark">Zadat poptávku</a>
+          <a href="#typy" class="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 font-semibold text-slate-700 border border-slate-200 hover:bg-slate-50">Nejčastější typy plotů</a>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="aspect-[4/3] rounded-2xl bg-white border border-slate-200 p-6 shadow-soft">
+          <div class="grid grid-cols-2 gap-4 h-full">
+            <div class="rounded-xl border border-slate-200 p-4 flex flex-col justify-between">
+              <div>
+                <div class="font-bold">Betonový plot</div>
+                <div class="text-xs text-slate-500">Odolný a bezúdržbový</div>
+              </div>
+              <div class="text-3xl font-black">od 1 200 Kč/m</div>
+            </div>
+            <div class="rounded-xl border border-slate-200 p-4 flex flex-col justify-between">
+              <div>
+                <div class="font-bold">Gabion</div>
+                <div class="text-xs text-slate-500">Moderní a tichý</div>
+              </div>
+              <div class="text-3xl font-black">od 1 900 Kč/m</div>
+            </div>
+            <div class="rounded-xl border border-slate-200 p-4 flex flex-col justify-between">
+              <div>
+                <div class="font-bold">Dřevěný</div>
+                <div class="text-xs text-slate-500">Přírodní vzhled</div>
+              </div>
+              <div class="text-3xl font-black">od 800 Kč/m</div>
+            </div>
+            <div class="rounded-xl border border-slate-200 p-4 flex flex-col justify-between">
+              <div>
+                <div class="font-bold">WPC / Hliník</div>
+                <div class="text-xs text-slate-500">Elegantní design</div>
+              </div>
+              <div class="text-3xl font-black">od 1 600 Kč/m</div>
+            </div>
+          </div>
+        </div>
+        <p class="mt-3 text-xs text-slate-500">Uvedené ceny jsou orientační bez montáže. Přesnou nabídku získáte po vyplnění poptávky.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formulář -->
+  <section id="formular" class="py-12 sm:py-16 lg:py-20 bg-white border-t border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-5 gap-8">
+        <div class="lg:col-span-3">
+          <h2 class="text-2xl sm:text-3xl font-black tracking-tight">Zadat poptávku</h2>
+          <p class="mt-2 text-slate-600">Vyplňte krátký formulář – poptávku odešleme ověřeným firmám ve vašem okolí. Získáte až 5 nabídek zdarma.</p>
+
+          <form id="leadForm" novalidate class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="sm:col-span-2">
+              <label for="typ" class="block text-sm font-medium">Typ plotu <span class="text-rose-600">*</span></label>
+              <select id="typ" name="typ" required class="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 focus:ring-2 focus:ring-brand">
+                <option value="" selected disabled>Vyberte</option>
+                <option>Betonový</option>
+                <option>Gabionový</option>
+                <option>Dřevěný</option>
+                <option>WPC</option>
+                <option>Hliníkový</option>
+                <option>Drátěný / Pletivo</option>
+                <option>Jiný / Nevíte</option>
+              </select>
+              <p id="typHelp" class="mt-1 text-xs text-slate-500">Nevíte? Zvolte „Jiný / Nevíte“ – firmy poradí.</p>
+            </div>
+
+            <div>
+              <label for="delka" class="block text-sm font-medium">Předpokládaná délka (m) <span class="text-rose-600">*</span></label>
+              <input type="number" min="1" step="0.1" inputmode="decimal" id="delka" name="delka" required placeholder="např. 35" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-brand" />
+            </div>
+            <div>
+              <label for="vyska" class="block text-sm font-medium">Požadovaná výška (cm)</label>
+              <input type="number" min="50" step="10" inputmode="numeric" id="vyska" name="vyska" placeholder="např. 180" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-brand" />
+            </div>
+
+            <div class="sm:col-span-2">
+              <label for="prislusenstvi" class="block text-sm font-medium">Příslušenství</label>
+              <div id="prislusenstvi" class="mt-2 grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm">
+                <label class="inline-flex items-center gap-2"><input type="checkbox" value="branka"> Branka</label>
+                <label class="inline-flex items-center gap-2"><input type="checkbox" value="brana-posuvna"> Brána posuvná</label>
+                <label class="inline-flex items-center gap-2"><input type="checkbox" value="brana-křídlová"> Brána křídlová</label>
+                <label class="inline-flex items-center gap-2"><input type="checkbox" value="základ"> Základ / podezdívka</label>
+                <label class="inline-flex items-center gap-2"><input type="checkbox" value="demontaz"> Demontáž starého</label>
+                <label class="inline-flex items-center gap-2"><input type="checkbox" value="odvoz"> Odvoz odpadu</label>
+              </div>
+            </div>
+
+            <div class="sm:col-span-2">
+              <label for="misto" class="block text-sm font-medium">Místo realizace (obec) <span class="text-rose-600">*</span></label>
+              <input type="text" id="misto" name="misto" required placeholder="např. Uherské Hradiště" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-brand" />
+            </div>
+
+            <div class="sm:col-span-2">
+              <label for="popis" class="block text-sm font-medium">Stručný popis</label>
+              <textarea id="popis" name="popis" rows="4" placeholder="Popište terén, materiál, termín, příslušenství…" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-brand"></textarea>
+            </div>
+
+            <div>
+              <label for="jmeno" class="block text-sm font-medium">Jméno a příjmení <span class="text-rose-600">*</span></label>
+              <input type="text" id="jmeno" name="jmeno" required placeholder="Jan Novák" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-brand" />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium">E‑mail <span class="text-rose-600">*</span></label>
+              <input type="email" id="email" name="email" required placeholder="jan.novak@email.cz" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-brand" />
+            </div>
+            <div>
+              <label for="telefon" class="block text-sm font-medium">Telefon <span class="text-rose-600">*</span></label>
+              <input type="tel" id="telefon" name="telefon" required inputmode="tel" placeholder="777 123 456" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-brand" />
+            </div>
+            <div>
+              <label for="rozpocet" class="block text-sm font-medium">Přibližný rozpočet</label>
+              <select id="rozpocet" name="rozpocet" class="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 focus:ring-2 focus:ring-brand">
+                <option value="">Neuvedeno</option>
+                <option>do 50 000 Kč</option>
+                <option>50–100 000 Kč</option>
+                <option>100–200 000 Kč</option>
+                <option>200 000+ Kč</option>
+              </select>
+            </div>
+
+            <div class="sm:col-span-2">
+              <label class="inline-flex items-center gap-2 text-sm">
+                <input id="gdpr" type="checkbox" required> Souhlasím se zpracováním osobních údajů za účelem zprostředkování nabídek.
+              </label>
+            </div>
+
+            <div class="sm:col-span-2 flex flex-col sm:flex-row gap-3">
+              <button type="submit" class="inline-flex items-center justify-center gap-2 rounded-xl bg-brand px-5 py-3 font-semibold text-white shadow-soft hover:bg-brand-dark">Odeslat poptávku</button>
+              <p id="formMsg" class="text-sm text-slate-600"></p>
+            </div>
+          </form>
+        </div>
+
+        <aside class="lg:col-span-2">
+          <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+            <h3 class="font-bold text-lg">Proč přes poptejplot.cz?</h3>
+            <ul class="mt-3 space-y-2 text-sm">
+              <li class="flex items-start gap-3"><span class="i-shield mt-0.5"></span> Ověřené firmy a reference</li>
+              <li class="flex items-start gap-3"><span class="i-coins mt-0.5"></span> Ušetříte průměrně 12–28 % ceny</li>
+              <li class="flex items-start gap-3"><span class="i-clock mt-0.5"></span> Nabídky obvykle do 48 hodin</li>
+              <li class="flex items-start gap-3"><span class="i-phone mt-0.5"></span> Konzultace a podpora zdarma</li>
+            </ul>
+          </div>
+          <div class="mt-5 rounded-2xl border border-slate-200 bg-white p-5">
+            <h3 class="font-bold text-lg">Hledané typy plotů</h3>
+            <div id="typy" class="mt-3 grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm">
+              <span class="tag">Betonové</span>
+              <span class="tag">Gabionové</span>
+              <span class="tag">Dřevěné</span>
+              <span class="tag">WPC</span>
+              <span class="tag">Hliníkové</span>
+              <span class="tag">Pletivo</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Jak to funguje -->
+  <section id="jak" class="py-12 sm:py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-black tracking-tight">Jak to funguje</h2>
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="font-bold">Zadáte poptávku</div>
+          <p class="text-sm text-slate-600">Krátký formulář – typ plotu, délka, obec, kontakt.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="font-bold">Oslovíme ověřené firmy</div>
+          <p class="text-sm text-slate-600">Podle regionu a specializace. Získáte až 5 nabídek.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="font-bold">Vyberete nejlepší řešení</div>
+          <p class="text-sm text-slate-600">Porovnáte cenu, termín i reference. Bez závazku.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reference -->
+  <section class="py-12 sm:py-16 lg:py-20 bg-slate-50 border-y border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-black tracking-tight">Co říkají zákazníci</h2>
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <figure class="ref">
+          <blockquote>„Měli jsme nabídky během dvou dnů a ušetřili přes 20 %.“</blockquote>
+          <figcaption>— Petra, Zlín</figcaption>
+        </figure>
+        <figure class="ref">
+          <blockquote>„Skvělá komunikace, vybral jsem gabion – hotovo za 3 týdny.“</blockquote>
+          <figcaption>— Martin, Brno</figcaption>
+        </figure>
+        <figure class="ref">
+          <blockquote>„Oceňuji rady s výškou a základy. Doporučuji.“</blockquote>
+          <figcaption>— Jana, Uherské Hradiště</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pro firmy -->
+  <section id="firmy" class="py-12 sm:py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-8 items-center">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-black tracking-tight">Jste firma? Získejte nové zakázky</h2>
+          <p class="mt-2 text-slate-600">Dostávejte poptávky z vašeho regionu a specializace. Platíte jen za relevantní kontakty.</p>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li class="flex items-start gap-3"><span class="i-target mt-0.5"></span> Regionální filtrování a typizace poptávek</li>
+            <li class="flex items-start gap-3"><span class="i-star mt-0.5"></span> Ověřené recenze a fotodokumentace</li>
+            <li class="flex items-start gap-3"><span class="i-mail mt-0.5"></span> Okamžité upozornění e‑mailem</li>
+          </ul>
+          <a href="#formular" class="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-5 py-3 font-semibold text-white hover:bg-black">Chci být mezi dodavateli</a>
+        </div>
+        <div class="rounded-2xl border border-slate-200 bg-white p-6">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="kpi"><div class="kpi-num">5 000+</div><div class="kpi-label">kontaktů ročně*</div></div>
+            <div class="kpi"><div class="kpi-num">48 h</div><div class="kpi-label">prům. reakce</div></div>
+            <div class="kpi"><div class="kpi-num">28 %</div><div class="kpi-label">úspora klientů</div></div>
+            <div class="kpi"><div class="kpi-num">4,8★</div><div class="kpi-label">spokojenost</div></div>
+          </div>
+          <p class="mt-3 text-xs text-slate-500">*Modelový odhad po rozjezdu projektu.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-12 sm:py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-black tracking-tight">Časté dotazy</h2>
+      <div class="mt-6 grid lg:grid-cols-2 gap-6">
+        <details class="faq"><summary>Je služba opravdu zdarma?</summary><div>Pro poptávající je zdarma. Náklady hradí zapojené firmy.</div></details>
+        <details class="faq"><summary>Za jak dlouho dostanu nabídky?</summary><div>Většinou do 24–48 hodin od ověření poptávky.</div></details>
+        <details class="faq"><summary>Předáváte osobní údaje každému?</summary><div>Ne. Data předáme pouze vybraným ověřeným firmám relevantním pro váš region a typ poptávky.</div></details>
+        <details class="faq"><summary>Mohu poptávku kdykoliv zrušit?</summary><div>Ano, stačí odpovědět na potvrzovací e‑mail nebo nás kontaktovat.</div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid md:grid-cols-4 gap-8 text-sm">
+      <div>
+        <div class="flex items-center gap-2 font-black text-lg">poptejplot<span class="text-brand">.cz</span></div>
+        <p class="mt-2 text-slate-600">Zadejte poptávku na plot, my oslovíme ověřené firmy. Srovnáte nabídky na jednom místě.</p>
+      </div>
+      <div>
+        <div class="font-bold">Rychlé odkazy</div>
+        <ul class="mt-2 space-y-1">
+          <li><a href="#formular" class="hover:text-brand">Zadat poptávku</a></li>
+          <li><a href="#typy" class="hover:text-brand">Typy plotů</a></li>
+          <li><a href="#jak" class="hover:text-brand">Jak to funguje</a></li>
+          <li><a href="#faq" class="hover:text-brand">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="font-bold">Právní</div>
+        <ul class="mt-2 space-y-1">
+          <li><a href="#" class="hover:text-brand">Zpracování osobních údajů</a></li>
+          <li><a href="#" class="hover:text-brand">Obchodní podmínky</a></li>
+          <li><a href="#" class="hover:text-brand">Cookies</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="font-bold">Kontakt</div>
+        <ul class="mt-2 space-y-1">
+          <li>E‑mail: info@poptejplot.cz</li>
+          <li>Telefon: +420 777 000 000</li>
+        </ul>
+        <a href="#formular" class="mt-3 inline-flex items-center justify-center gap-2 rounded-xl bg-brand px-4 py-2 font-semibold text-white shadow-soft hover:bg-brand-dark">Zadat poptávku</a>
+      </div>
+    </div>
+    <div class="border-t border-slate-200 py-4 text-center text-xs text-slate-500">© <span id="year"></span> poptejplot.cz – Všechna práva vyhrazena.</div>
+  </footer>
+
+  <!-- Utilities / templates -->
+  <template id="toastTpl">
+    <div class="fixed bottom-4 left-1/2 -translate-x-1/2 z-[60] bg-slate-900 text-white text-sm px-4 py-2 rounded-xl shadow-lg"></div>
+  </template>
+
+  <script>
+    // Icons (minimal inline replacements to keep zero dependencies)
+    function icon(el, path) {
+      el.innerHTML = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='18' height='18' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='${path}'/></svg>`;
+    }
+    document.querySelectorAll('.i-check').forEach(n => icon(n, 'M20 6l-11 11-5-5'));
+    document.querySelectorAll('.i-shield').forEach(n => icon(n, '12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'));
+    document.querySelectorAll('.i-coins').forEach(n => icon(n, '4 18c1.5 1 4 1.5 6 1.5S14.5 19 16 18v-4c-1.5 1-4 1.5-6 1.5S5.5 15 4 14v4z M4 14c1.5 1 4 1.5 6 1.5S14.5 15 16 14v-4c-1.5 1-4 1.5-6 1.5S5.5 11 4 10v4z M4 10c1.5 1 4 1.5 6 1.5S14.5 11 16 10V6c-1.5 1-4 1.5-6 1.5S5.5 7 4 6v4z'));
+    document.querySelectorAll('.i-clock').forEach(n => icon(n, '12 8v5l3 3 M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z'));
+    document.querySelectorAll('.i-phone').forEach(n => icon(n, '22 16.92V21a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3 7.18 2 2 0 0 1 5 5h4.09a2 2 0 0 1 2 1.72l.45 3a2 2 0 0 1-.57 1.73l-1.27 1.27a16 16 0 0 0 6.54 6.54l1.27-1.27a2 2 0 0 1 1.73-.57l3 .45A2 2 0 0 1 22 16.92z'));
+    document.querySelectorAll('.i-target').forEach(n => icon(n, '12 6v6l4 2 M21 12A9 9 0 1 1 3 12a9 9 0 0 1 18 0z')); 
+    document.querySelectorAll('.i-star').forEach(n => icon(n, '12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z'));
+    document.querySelectorAll('.i-mail').forEach(n => icon(n, '4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 0l8 7 8-7'));
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Tags style helper
+    document.querySelectorAll('.tag').forEach(el => {
+      el.classList.add('inline-flex','items-center','justify-center','rounded-full','px-3','py-1','bg-brand/10','text-brand','border','border-brand/20','font-medium');
+    });
+
+    // Steps style
+    document.querySelectorAll('.step').forEach(el => {
+      el.classList.add('relative','rounded-2xl','border','border-slate-200','bg-white','p-6');
+    });
+    document.querySelectorAll('.step .step-num').forEach(el => {
+      el.classList.add('absolute','-top-3','-left-3','w-10','h-10','rounded-2xl','bg-brand','text-white','font-black','grid','place-items-center','shadow-soft');
+    });
+
+    // KPI style
+    document.querySelectorAll('.kpi').forEach(el => {
+      el.classList.add('rounded-xl','border','border-slate-200','bg-slate-50','p-4','text-center');
+    });
+    document.querySelectorAll('.kpi .kpi-num').forEach(el => el.classList.add('text-2xl','font-black'));
+    document.querySelectorAll('.kpi .kpi-label').forEach(el => el.classList.add('text-xs','text-slate-500'));
+
+    // Reference cards
+    document.querySelectorAll('.ref').forEach(el => {
+      el.classList.add('rounded-2xl','border','border-slate-200','bg-white','p-5');
+    });
+    document.querySelectorAll('.ref blockquote').forEach(el => el.classList.add('text-sm'));
+    document.querySelectorAll('.ref figcaption').forEach(el => el.classList.add('mt-2','text-xs','text-slate-500'));
+
+    // FAQ style
+    document.querySelectorAll('.faq').forEach(el => {
+      el.classList.add('rounded-2xl','border','border-slate-200','bg-white','p-4');
+    });
+    document.querySelectorAll('.faq > summary').forEach(el => {
+      el.classList.add('cursor-pointer','font-medium');
+    });
+
+    // Mobile menu toggle + auto-close on link click
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn?.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('hidden') === false; // now visible when false returned
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      if (!mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden');
+      menuBtn?.setAttribute('aria-expanded','false');
+    }));
+
+    // Form validation & fake submit
+    const form = document.getElementById('leadForm');
+    const formMsg = document.getElementById('formMsg');
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      formMsg.textContent = '';
+      const data = Object.fromEntries(new FormData(form).entries());
+      const required = ['typ','delka','misto','jmeno','email','telefon'];
+      let ok = true;
+      required.forEach(k => { if (!data[k]) ok = false; });
+      if (!document.getElementById('gdpr').checked) ok = false;
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email || '')) ok = false;
+      if (!ok) {
+        toast('Zkontrolujte povinná pole.');
+        formMsg.textContent = 'Formulář obsahuje chyby. Vyplňte prosím povinné údaje.';
+        formMsg.className = 'text-sm text-rose-600';
+        return;
+      }
+      // Simulace odeslání
+      toast('Děkujeme! Poptávku jsme přijali. Ozveme se co nejdříve.');
+      formMsg.textContent = 'Poptávka byla úspěšně odeslána. Zkontrolujte prosím e‑mail.';
+      formMsg.className = 'text-sm text-emerald-700';
+      form.reset();
+      document.getElementById('gdpr').checked = false;
+    });
+
+    function toast(text) {
+      const tpl = document.getElementById('toastTpl');
+      const el = tpl.content.firstElementChild.cloneNode(true);
+      el.textContent = text;
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 3200);
+    }
+  </script>
+</body>
+</html>
