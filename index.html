@@ -76,7 +76,7 @@
   nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { nav.classList.remove('open'); menu.setAttribute('aria-expanded','false'); menu.textContent='☰'; }));
   const renderCalc = () => { const raw=Number($('#calcLength').value); const length=Number.isFinite(raw)?Math.max(0,Math.min(1000,raw)):0; const fields=length?Math.ceil(length/2.5):0; $('#panelCount').textContent=String(fields); $('#postCount').textContent=String(fields?fields+1:0); $('#calcSummary').textContent=length?'Pro délku '+new Intl.NumberFormat('cs-CZ',{maximumFractionDigits:1}).format(length)+' m přibližně potřebujete:':'Zadejte délku plotu větší než nula.'; };
   $('#calcLength').addEventListener('input',renderCalc); $('#calcType').addEventListener('change',renderCalc);
-  $('#useCalc').addEventListener('click',()=>{$('#type').value=$('#calcType').value;$('#length').value=$('#calcLength').value;$('#poptavka').scrollIntoView({behavior:'smooth'});$('#type').focus({preventScroll:true});});
+  $('#useCalc').addEventListener('click',()=>{$('#type').value=$('#calcType').value.includes('3D')?'Panelový 3D':'Panelový 2D';$('#length').value=$('#calcLength').value;$('#poptavka').scrollIntoView({behavior:'smooth'});$('#type').focus({preventScroll:true});});
   async function submitForm(form,status,fallbackEmail){
     status.className='status'; if(!form.reportValidity())return;
     const button=form.querySelector('[type=submit]');button.disabled=true;button.textContent='Odesílám…';
