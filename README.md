@@ -13,7 +13,7 @@ Jednoduchý web pro poptávky na ploty a registrace dodavatelů.
 
 ## Důležitá informace o hostingu
 
-Aktuální nasazení repozitáře je GitHub Pages. GitHub Pages obsluhuje statické soubory a **nespouští PHP**. Stránky se zobrazí, ale endpoint `api/submit.php` tam nebude fungovat; formulář zobrazí přímou e-mailovou náhradní možnost a nebude předstírat úspěšné odeslání.
+Aktuální nasazení repozitáře je GitHub Pages. GitHub Pages obsluhuje statické soubory a **nespouští PHP**. Stránky se zobrazí, ale endpoint `api/submit.php` tam nebude fungovat. Dokud je meta tag `form-endpoint` prázdný, formuláře vůbec neposílají zadaná data na server; nabídnou pouze ručně otevřený e-mail. Po přechodu na PHP hosting doplňte do obou HTML souborů hodnotu `/api/submit.php` do tohoto meta tagu.
 
 Pro automatické odesílání je potřeba umístit web na PHP hosting (například WEDOS) nebo nasměrovat `api/submit.php` na samostatný PHP server se správně nastaveným HTTPS a CORS. V historii projektu je pro hosting uvedena cesta `/www/domains/poptejplot.cz`; před přepnutím domény ověřte aktuální DNS a cílový hosting. PHP endpoint neposílá ani neukládá žádné údaje, dokud není přítomný hostitelský soubor `api/config.php` a vyplněné údaje provozovatele.
 
