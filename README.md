@@ -21,7 +21,7 @@ GitHub Pages dál obsluhuje statické soubory. PHP složka `api` není pro hlavn
 
 ## Důležité obchodní a právní údaje
 
-Není doplněný úplný právní provozovatel PoptejPlot.cz. Proto web neuvádí smyšlené IČO, adresu, reference, počty zakázek ani ceny. Právní informační stránky jasně označují, co je třeba před plným provozem doplnit. Nedoplňujte tyto údaje odhadem.
+Veřejné informace uvádějí jako správce AO Holding s.r.o. a kontaktní e-mail info@poptejplot.cz. IČO ani sídlo zde nedoplňujeme odhadem; ověřte, zda mají být zveřejněny v právních informacích před dalším rozšiřováním provozu.
 
 ## Lokální kontrola
 
