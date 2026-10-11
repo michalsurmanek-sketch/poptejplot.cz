@@ -172,8 +172,50 @@
     }
     @media(prefers-reduced-motion:reduce){.hero-action{transition:none}}
   </style>
+
+<style id="site-launch-countdown-styles">
+.launch-overlay{--lc-green:#145640;--lc-green-dark:#0d3d32;--lc-accent:#eca51b;position:fixed;inset:0;z-index:2147483000;display:grid;place-items:center;padding:18px;background:rgba(13,35,28,.62);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)}
+.launch-overlay[hidden]{display:none!important}
+.launch-dialog{position:relative;width:min(560px,100%);max-height:calc(100vh - 36px);max-height:calc(100dvh - 36px);overflow:auto;padding:42px 38px 34px;border:1px solid rgba(255,255,255,.8);border-radius:26px;background:linear-gradient(145deg,#fff 0%,#f3f7f3 100%);box-shadow:0 28px 100px rgba(0,0,0,.3);text-align:center;color:#17251e}
+.launch-dialog:before{content:"";position:absolute;inset:0 0 auto;height:7px;border-radius:26px 26px 0 0;background:linear-gradient(90deg,var(--lc-green),var(--lc-accent))}
+.launch-close{position:absolute;top:13px;right:14px;width:44px;height:44px;display:grid;place-items:center;border:1px solid #dce6df;border-radius:50%;background:#fff;color:var(--lc-green);font:400 27px/1 Arial,sans-serif;cursor:pointer}
+.launch-close:hover{background:#eaf5ee}
+.launch-kicker{display:inline-flex;align-items:center;gap:8px;margin:0 auto 15px;padding:8px 13px;border-radius:99px;background:#eaf5ee;color:var(--lc-green-dark);font:800 13px/1.3 Arial,sans-serif;letter-spacing:.05em;text-transform:uppercase}
+.launch-kicker i{width:9px;height:9px;border-radius:50%;background:var(--lc-accent)}
+.launch-dialog h2{margin:0 auto 12px;color:var(--lc-green-dark);font:800 clamp(30px,6vw,42px)/1.08 Arial,sans-serif;letter-spacing:-1.2px}
+.launch-copy{max-width:430px;margin:0 auto 22px;color:#536159;font:400 17px/1.55 Arial,sans-serif}
+.launch-timer{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 24px}
+.launch-unit{min-width:0;padding:14px 8px 12px;border:1px solid #dce6df;border-radius:14px;background:#fff}
+.launch-unit strong{display:block;color:var(--lc-green-dark);font:800 clamp(27px,6vw,38px)/1.1 Arial,sans-serif;font-variant-numeric:tabular-nums}
+.launch-unit span{display:block;margin-top:5px;color:#65736b;font:700 13px/1.3 Arial,sans-serif}
+.launch-action{width:100%;min-height:54px;padding:12px 18px;border:0;border-radius:12px;background:var(--lc-accent);color:#fff;font:800 17px/1.25 Arial,sans-serif;cursor:pointer}
+.launch-action:hover{filter:brightness(.95)}
+.launch-footnote{margin:14px 0 0;color:#68776f;font:400 14px/1.45 Arial,sans-serif}
+body.launch-modal-open{overflow:hidden}
+@media(max-width:520px){.launch-overlay{padding:12px}.launch-dialog{padding:40px 18px 24px;border-radius:22px}.launch-dialog:before{border-radius:22px 22px 0 0}.launch-close{top:10px;right:10px;width:42px;height:42px}.launch-kicker{font-size:12px}.launch-copy{font-size:16px}.launch-timer{gap:7px}.launch-unit{padding:12px 4px 10px;border-radius:12px}.launch-unit strong{font-size:29px}.launch-unit span{font-size:12px}}
+@media(max-width:360px){.launch-dialog{padding-inline:14px}.launch-timer{gap:5px}.launch-unit strong{font-size:25px}.launch-unit span{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.launch-overlay{backdrop-filter:none;-webkit-backdrop-filter:none}}
+</style>
+
 </head>
 <body>
+
+<div class="launch-overlay" id="launchOverlay" hidden>
+  <section class="launch-dialog" role="dialog" aria-modal="true" aria-labelledby="launchTitle" aria-describedby="launchDescription">
+    <button class="launch-close" type="button" id="launchClose" aria-label="Zavřít oznámení">×</button>
+    <p class="launch-kicker"><i aria-hidden="true"></i>Už brzy online</p>
+    <h2 id="launchTitle">Startujeme 1. ledna 2027</h2>
+    <p class="launch-copy" id="launchDescription">PoptejPlot.cz spustíme už za:</p>
+    <div class="launch-timer" role="timer" aria-label="Odpočet do spuštění">
+      <div class="launch-unit"><strong id="launchDays">00</strong><span id="launchDaysLabel">dnů</span></div>
+      <div class="launch-unit"><strong id="launchHours">00</strong><span>hodin</span></div>
+      <div class="launch-unit"><strong id="launchMinutes">00</strong><span>minut</span></div>
+      <div class="launch-unit"><strong id="launchSeconds">00</strong><span>sekund</span></div>
+    </div>
+    <button class="launch-action" type="button" id="launchContinue">Pokračovat na PoptejPlot.cz <span aria-hidden="true">→</span></button>
+    <p class="launch-footnote">Po zavření můžete web normálně procházet a používat.</p>
+  </section>
+</div>
   <header class="site-header">
     <div class="container header-row">
       <a class="brand" href="#top" aria-label="Poptej plot – úvod"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M4 27V11l3-4 3 4v16M13 27V8l3-4 3 4v19M22 27V11l3-4 3 4v16M3 16h26M3 22h26" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="brand-name">Poptej <em>plot</em><small>Ploty na míru · kvalita · rychlé vyřízení</small></span></a>
@@ -353,5 +395,56 @@
       update();
     })();
   </script>
+
+<script id="site-launch-countdown-script">
+(() => {
+  const overlay=document.getElementById('launchOverlay');
+  if(!overlay)return;
+  const closeButton=document.getElementById('launchClose');
+  const continueButton=document.getElementById('launchContinue');
+  const deadline=new Date('2027-01-01T00:00:00+01:00').getTime();
+  const key='poptejplot-launch-popup-dismissed';
+  const close=()=>{
+    overlay.hidden=true;
+    document.body.classList.remove('launch-modal-open');
+    try{sessionStorage.setItem(key,'1')}catch{}
+  };
+  const pluralDays=n=>n===1?'den':n>=2&&n<=4?'dny':'dnů';
+  const tick=()=>{
+    const remaining=deadline-Date.now();
+    if(remaining<=0){overlay.hidden=true;document.body.classList.remove('launch-modal-open');return}
+    const days=Math.floor(remaining/86400000);
+    const hours=Math.floor(remaining%86400000/3600000);
+    const minutes=Math.floor(remaining%3600000/60000);
+    const seconds=Math.floor(remaining%60000/1000);
+    document.getElementById('launchDays').textContent=String(days).padStart(2,'0');
+    document.getElementById('launchDaysLabel').textContent=pluralDays(days);
+    document.getElementById('launchHours').textContent=String(hours).padStart(2,'0');
+    document.getElementById('launchMinutes').textContent=String(minutes).padStart(2,'0');
+    document.getElementById('launchSeconds').textContent=String(seconds).padStart(2,'0');
+  };
+  let dismissed=false;
+  try{dismissed=sessionStorage.getItem(key)==='1'}catch{}
+  if(!dismissed&&Date.now()<deadline){
+    overlay.hidden=false;
+    document.body.classList.add('launch-modal-open');
+    closeButton.focus({preventScroll:true});
+    tick();
+    window.setInterval(tick,1000);
+  }
+  closeButton.addEventListener('click',close);
+  continueButton.addEventListener('click',close);
+  overlay.addEventListener('click',event=>{if(event.target===overlay)close()});
+  document.addEventListener('keydown',event=>{
+    if(overlay.hidden)return;
+    if(event.key==='Escape'){event.preventDefault();close();return}
+    if(event.key==='Tab'){
+      const controls=[closeButton,continueButton];
+      if(event.shiftKey&&document.activeElement===controls[0]){event.preventDefault();controls[1].focus()}
+      else if(!event.shiftKey&&document.activeElement===controls[1]){event.preventDefault();controls[0].focus()}
+    }
+  });
+})();
+</script>
 </body>
 </html>
