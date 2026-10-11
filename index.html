@@ -77,11 +77,106 @@
     @media(max-width:430px){.brand{font-size:18px}.hero-grid{padding-top:34px}.hero-image{min-height:245px}.quick-note{right:10px;top:10px}.fence-card img{height:92px}.fence-card-copy{padding:11px}.fence-card h3{font-size:13px}.fence-card p{font-size:11px}.form-heading{display:block}.required-note{padding-top:10px}.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.aside-steps{grid-template-columns:1fr}.aside-step{display:flex}.aside-icon{margin:0}.section-heading h2{font-size:31px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
   </style>
+  <style id="poptejplot-home-refresh">
+    :root{--green:#145640;--green-dark:#0d3d32;--green-pale:#e4f0e9;--orange:#eca51b;--ink:#10251d;--muted:#66716b}
+    .site-header{background:rgba(255,255,255,.95);border-bottom-color:#e3e7e2}
+    .header-row{height:76px}
+    .site-header .brand{gap:13px;color:#101b17;font-size:27px;letter-spacing:-1.3px}
+    .site-header .brand-mark{width:49px;height:49px;border-radius:14px;background:#124638;box-shadow:none}
+    .site-header .brand-mark svg{width:31px;height:31px}
+    .site-header .brand-name{display:block;line-height:1.02}
+    .site-header .brand-name em{color:#19724f}
+    .site-header .brand-name small{display:block;margin-top:7px;color:#66716b;font-size:12px;font-weight:500;letter-spacing:0}
+    .menu-button{border:1px solid #d8dfda;border-radius:14px;background:#fff;color:#173c32;width:48px;height:48px;box-shadow:0 3px 12px #17382b0b}
+    .hero{min-height:0;position:relative;isolation:isolate;overflow:hidden;border:0;background:#f7f8f2}
+    .hero:before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(90deg,rgba(249,250,245,.99) 0%,rgba(249,250,245,.93) 36%,rgba(249,250,245,.58) 57%,rgba(249,250,245,.08) 82%),url('/assets/poptejplot-hero.webp');background-size:cover,cover;background-position:center,62% center}
+    .hero:after{display:none}
+    .hero-grid{display:block;min-height:610px;padding:60px 0 32px}
+    .hero-copy{max-width:610px}
+    .hero .eyebrow{display:inline-flex;align-items:center;gap:10px;padding:9px 16px;border-radius:999px;background:#e3eee7;color:#143c31;font-size:13px;letter-spacing:.015em;font-weight:850}
+    .hero .eyebrow:before{width:10px;height:10px;border-radius:50%;background:#f3b21e}
+    .hero h1{max-width:590px;margin:23px 0 20px;font-size:clamp(44px,5.2vw,68px);line-height:1.02;letter-spacing:-.065em;color:#10241c}
+    .hero-highlight{position:relative;display:inline-block;color:#d99412;white-space:nowrap}
+    .hero-highlight:after{content:"";position:absolute;left:0;right:-6px;bottom:-8px;height:10px;border-top:4px solid #eca51b;border-radius:50%;transform:rotate(-2deg)}
+    .hero-copy>p{max-width:570px;margin:27px 0 0;color:#3e4944;font-size:18px;line-height:1.55}
+    .hero-actions{display:flex;flex-direction:column;align-items:flex-start;gap:10px;margin-top:25px}
+    .hero-action{width:min(100%,390px);min-height:60px;display:flex;align-items:center;justify-content:center;gap:15px;padding:10px 18px;border:1px solid #d9dfda;border-radius:17px;text-decoration:none;font-size:18px;font-weight:800;line-height:1.1;box-shadow:0 5px 12px #15281d12;transition:transform .16s,background .16s}
+    .hero-action:hover{transform:translateY(-1px)}
+    .hero-action svg{width:32px;height:32px;flex:0 0 auto}
+    .hero-action-primary{justify-content:space-around;background:linear-gradient(#ffc747,#f5aa19);border-color:#f3b02d;border-bottom:4px solid #bd7f13;color:#101b17}
+    .hero-action-primary b{font-size:29px;line-height:1}
+    .hero-action-secondary{background:#fff;color:#102d24}
+    .hero-points{display:flex;flex-wrap:wrap;gap:12px 20px;margin-top:22px;color:#18241e;font-size:14px;font-weight:550}
+    .hero-points span{white-space:nowrap;gap:8px}
+    .hero-points .check{width:21px;height:21px;background:#348b4f;color:#fff;font-size:13px}
+    .hero-benefits{position:relative;z-index:1;margin-top:-1px;padding:0 0 38px;background:#f7f8f2}
+    .hero-benefits-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .hero-benefit{min-height:194px;padding:18px 20px 20px;border:1px solid #edf0ec;border-radius:20px;background:#fff;box-shadow:0 10px 26px #183b2810}
+    .benefit-icon{width:54px;height:54px;display:grid;place-items:center;margin-bottom:13px;border-radius:50%;background:#e1f0e7;color:#126247}
+    .benefit-icon svg{width:34px;height:34px;fill:currentColor}
+    .hero-benefit h2{margin:0 0 7px;color:#13241d;font-size:17px;line-height:1.18;letter-spacing:-.035em}
+    .hero-benefit p{margin:0;color:#69736d;font-size:14px;line-height:1.42}
+    .quick-calculator{padding-top:48px}
+    .calculator-panel{max-width:760px;margin:25px auto 0;padding:24px;border:1px solid var(--line);border-radius:22px;background:#fff;box-shadow:var(--shadow)}
+    .calculator-fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .calculator-fields label{display:grid;gap:7px;font-size:13px;font-weight:750}
+    .calculator-fields input,.calculator-fields select{width:100%;min-height:48px;border:1px solid #cbd6ce;border-radius:11px;padding:10px 12px;background:white;color:var(--ink)}
+    .calculator-result{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+    .calculator-result>div{display:flex;align-items:baseline;gap:8px;padding:14px 16px;border-radius:13px;background:#f0f6f1}
+    .calculator-result strong{color:var(--green);font-size:30px;line-height:1}
+    .calculator-result span{color:#46564c;font-size:13px}
+    .calculator-note{color:var(--muted);font-size:13px;line-height:1.5}
+    .calculator-use{border:0}
+    @media(max-width:760px){
+      .container{width:calc(100% - 40px)}
+      .header-row{height:72px}
+      .site-header .brand{gap:12px;font-size:25px}
+      .site-header .brand-mark{width:49px;height:49px}
+      .site-header .brand-name small{margin-top:6px;font-size:11px}
+      .hero:before{background-image:linear-gradient(90deg,rgba(249,250,245,.99) 0%,rgba(249,250,245,.91) 42%,rgba(249,250,245,.52) 66%,rgba(249,250,245,.08) 100%),url('/assets/poptejplot-hero.webp');background-position:center,62% center}
+      .hero-grid{min-height:550px;padding:34px 0 26px}
+      .hero-copy{max-width:540px}
+      .hero .eyebrow{padding:8px 12px;font-size:12px}
+      .hero h1{margin:20px 0 15px;font-size:clamp(42px,8.5vw,52px);line-height:1.04;letter-spacing:-.065em}
+      .hero-highlight:after{bottom:-6px;height:8px;border-top-width:3px}
+      .hero-copy>p{max-width:390px;margin-top:19px;font-size:16px;line-height:1.48}
+      .hero-actions{gap:9px;margin-top:20px}
+      .hero-action{width:min(100%,325px);min-height:54px;border-radius:15px;font-size:16px}
+      .hero-action svg{width:29px;height:29px}
+      .hero-action-primary b{font-size:26px}
+      .hero-points{gap:8px 14px;margin-top:17px;font-size:12px}
+      .hero-points span{gap:6px}
+      .hero-points .check{width:19px;height:19px;font-size:12px}
+      .hero-benefits{padding:0 0 28px}
+      .hero-benefits-grid{gap:8px}
+      .hero-benefit{min-height:164px;padding:13px 12px 14px;border-radius:17px}
+      .benefit-icon{width:46px;height:46px;margin-bottom:10px}
+      .benefit-icon svg{width:30px;height:30px}
+      .hero-benefit h2{font-size:13px}
+      .hero-benefit p{font-size:12px}
+    }
+    @media(max-width:430px){
+      .container{width:calc(100% - 32px)}
+      .site-header .brand{font-size:23px}
+      .site-header .brand-mark{width:46px;height:46px}
+      .site-header .brand-name small{font-size:10px}
+      .hero-grid{min-height:535px;padding-top:30px}
+      .hero h1{font-size:clamp(39px,9vw,45px)}
+      .hero-action{min-height:52px;font-size:15px}
+      .hero-points{gap:7px 10px;font-size:11px}
+      .hero-points .check{width:17px;height:17px;font-size:11px}
+      .hero-benefit{min-height:157px;padding:12px 10px}
+      .hero-benefit h2{font-size:12px}
+      .hero-benefit p{font-size:11px}
+      .calculator-panel{padding:18px}
+    }
+    @media(prefers-reduced-motion:reduce){.hero-action{transition:none}}
+  </style>
 </head>
 <body>
   <header class="site-header">
     <div class="container header-row">
-      <a class="brand" href="#top" aria-label="PoptejPlot.cz – úvod"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20V7l8-4 8 4v13M8 20v-6h8v6M4 10h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Poptej<em>Plot</em>.cz</span></a>
+      <a class="brand" href="#top" aria-label="Poptej plot – úvod"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M4 27V11l3-4 3 4v16M13 27V8l3-4 3 4v19M22 27V11l3-4 3 4v16M3 16h26M3 22h26" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="brand-name">Poptej <em>plot</em><small>Ploty na míru · kvalita · rychlé vyřízení</small></span></a>
       <nav class="nav" id="mainNav" aria-label="Hlavní navigace"><a href="#typy">Typy plotů</a><a href="#jak-to-funguje">Jak to funguje</a><a href="#formular" class="button">Poptat plot <span aria-hidden="true">→</span></a></nav>
       <button class="menu-button" id="menuButton" aria-label="Otevřít menu" aria-expanded="false" aria-controls="mainNav"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
     </div>
@@ -89,8 +184,41 @@
   <main id="top">
     <section class="hero">
       <div class="container hero-grid">
-        <div class="hero-copy"><div class="eyebrow">Poptávka oplocení</div><h1>Hledáte plot? Začněte jednou poptávkou.</h1><p>Vyberte typ oplocení, zadejte přibližné rozměry a místo realizace. Doplňte podklady pro nezávazné nacenění vašeho plotu.</p><div class="hero-points"><span><i class="check">✓</i> Všechny hlavní typy plotů</span><span><i class="check">✓</i> Materiál i montáž</span><span><i class="check">✓</i> Bez závazné objednávky</span></div></div>
-        <div class="hero-image" role="img" aria-label="Moderní panelový plot u rodinného domu"><div class="quick-note"><b>10 typů</b>oplocení v nabídce</div><div class="hero-caption"><strong>Od pletiva po zděný plot</strong><span>Vyberte řešení podle pozemku, soukromí a rozpočtu.</span></div></div>
+        <div class="hero-copy">
+          <div class="eyebrow">Rychlá cesta k novému plotu</div>
+          <h1>Váš nový plot<br>začíná dobrou<br><span class="hero-highlight">poptávkou.</span></h1>
+          <p>Popište, co potřebujete. Připravíme zadání pro místní dodavatele a ozveme se vám s dalším postupem.</p>
+          <div class="hero-actions">
+            <a class="hero-action hero-action-primary" href="#formular"><svg aria-hidden="true" viewBox="0 0 32 32" fill="none"><path d="M9 4h10l7 7v17H9V4Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M19 4v8h7M13 17h9M13 22h9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><span>Popsat svůj projekt</span><b aria-hidden="true">→</b></a>
+            <a class="hero-action hero-action-secondary" href="#kalkulacka"><svg aria-hidden="true" viewBox="0 0 32 32" fill="none"><rect x="7" y="4" width="18" height="24" rx="3" stroke="currentColor" stroke-width="2.2"/><path d="M11 9h10v5H11zM12 19h1m5 0h1m-7 4h1m5 0h1" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Spočítat počet panelů</span></a>
+          </div>
+          <div class="hero-points">
+            <span><i class="check">✓</i>Bez závazku</span>
+            <span><i class="check">✓</i>Poptávka zdarma</span>
+            <span><i class="check">✓</i>Vy sami rozhodnete</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="hero-benefits" aria-label="Jak poptávka pomůže">
+      <div class="container hero-benefits-grid">
+        <article class="hero-benefit"><span class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M8 10h25a6 6 0 0 1 6 6v12a6 6 0 0 1-6 6H21l-9 7v-7h-4a6 6 0 0 1-6-6V16a6 6 0 0 1 6-6Zm27 8h5a6 6 0 0 1 6 6v11a6 6 0 0 1-6 6h-3v5l-7-5h-7a6 6 0 0 1-5-3h10a9 9 0 0 0 9-9V18Z"/></svg></span><h2>Jednoduše popíšete</h2><p>Řekněte nám, co potřebujete a kde.</p></article>
+        <article class="hero-benefit"><span class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="m24 5 4 3 5-1 3 4 5 1 1 5 4 4-2 5 1 5-4 3-2 5-5 1-4 4-5-2-5 1-3-4-5-2-1-5-4-4 2-5-1-5 4-3 2-5 5-1 4-4 5 2 5-1Z"/><path d="m8 13-4 5 2 5-2 5 4 4 1 5 5 2 3 4 5-1 3 2 3-3"/></svg></span><h2>Spojíme vás<br>s dodavateli</h2><p>Oslovíme ověřené firmy ve vašem kraji.</p></article>
+        <article class="hero-benefit"><span class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="m5 25 9-9 8 2 5 5-3 3-5-3-3 2 8 8c1 1 3 1 4 0l12-11 6 6-14 14c-3 3-8 3-11 0L5 28c-1-1-1-2 0-3Z"/><path d="m25 12 5-5 4 2 4-1 6 7-4 4-6-5-4 3M9 18l-4-4 6-6 5 2 4-3 5 5-5 5"/></svg></span><h2>Získáte nabídky</h2><p>Porovnáte ceny a vyberete si tu nejlepší.</p></article>
+      </div>
+    </section>
+    <section class="section quick-calculator" id="kalkulacka">
+      <div class="container">
+        <div class="section-heading"><div class="eyebrow">Rychlý výpočet</div><h2>Kolik panelů budete potřebovat?</h2><p>Orientačně spočítáme standardní panelový plot s délkou pole 2,5 m.</p></div>
+        <div class="calculator-panel">
+          <div class="calculator-fields">
+            <label for="calcLength">Délka plotu (m)<input id="calcLength" type="number" min="1" max="1000" step="1" value="25" inputmode="numeric"></label>
+            <label for="calcType">Typ panelu<select id="calcType"><option value="Panelový 2D">Panelový plot 2D</option><option value="Panelový 3D">Panelový plot 3D</option></select></label>
+          </div>
+          <div class="calculator-result"><div><strong id="calcPanels">10</strong><span>panelů po 2,5 m</span></div><div><strong id="calcPosts">11</strong><span>sloupků bez bran</span></div></div>
+          <p class="calculator-note">Jde o orientační výpočet. Přesné množství závisí na branách, rohových sloupcích, sklonu pozemku a způsobu montáže.</p>
+          <button class="button calculator-use" id="useCalc" type="button">Použít v poptávce <span aria-hidden="true">→</span></button>
+        </div>
       </div>
     </section>
     <section class="section" id="typy">
@@ -196,6 +324,34 @@
         status.className='status show error';status.textContent='Odeslání se nepodařilo. Vaše údaje zůstaly ve formuláři; zkuste to prosím znovu.';
       }finally{button.disabled=false;button.innerHTML=buttonText}
     });
+  </script>
+  <script>
+    (() => {
+      const length = document.getElementById('calcLength');
+      const type = document.getElementById('calcType');
+      const panelsOut = document.getElementById('calcPanels');
+      const postsOut = document.getElementById('calcPosts');
+      const useButton = document.getElementById('useCalc');
+      if (!length || !type || !panelsOut || !postsOut || !useButton) return;
+      const update = () => {
+        const metres = Math.max(1, Math.min(1000, Number(length.value) || 1));
+        const panels = Math.ceil(metres / 2.5);
+        panelsOut.textContent = String(panels);
+        postsOut.textContent = String(panels + 1);
+      };
+      length.addEventListener('input', update);
+      type.addEventListener('change', update);
+      useButton.addEventListener('click', () => {
+        const panelCard = [...document.querySelectorAll('.fence-card')].find(card => /Panelový plot/.test(card.querySelector('h3')?.textContent || ''));
+        panelCard?.click();
+        const subtype = document.getElementById('subtype');
+        const formLength = document.getElementById('length');
+        if (subtype) subtype.value = type.value;
+        if (formLength) formLength.value = length.value;
+        document.getElementById('formular')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      update();
+    })();
   </script>
 </body>
 </html>
