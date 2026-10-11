@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#183f35">
+  <meta name="form-endpoint" content="">
   <title>Poptej plot – Poptávka na plot a oplocení</title>
   <meta name="description" content="Poptávka na plot, bránu nebo oplocení. Popište svůj projekt a spojíme vás s dodavateli, kteří se mu mohou věnovat.">
   <link rel="canonical" href="https://poptejplot.cz/">
@@ -81,7 +82,7 @@
     status.className='status'; if(!form.reportValidity())return;
     const button=form.querySelector('[type=submit]');button.disabled=true;button.textContent='Odesílám…';
     const formData=new FormData(form),data=Object.fromEntries(formData.entries());data.extras=formData.getAll('extras[]');data.started_at=$('#leadStarted')?.value||String(Date.now());
-    try{const response=await fetch('api/submit.php',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data),credentials:'same-origin'});const result=await response.json();if(!response.ok||!result.ok)throw new Error(result.message||'Odeslání se nepodařilo.');form.reset();status.className='status success';status.textContent=result.message||'Poptávku jsme přijali.';if($('#leadStarted'))$('#leadStarted').value=String(Date.now());}
+    try{const endpoint=document.querySelector('meta[name="form-endpoint"]')?.content.trim();if(!endpoint)throw new Error('Webové odesílání není aktivní.');const response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data),credentials:'same-origin'});const result=await response.json();if(!response.ok||!result.ok)throw new Error(result.message||'Odeslání se nepodařilo.');form.reset();status.className='status success';status.textContent=result.message||'Poptávku jsme přijali.';if($('#leadStarted'))$('#leadStarted').value=String(Date.now());}
     catch(error){status.className='status error';status.textContent='Odeslání přes web teď není dostupné. Napište nám prosím přímo na ';const link=document.createElement('a');link.href='mailto:'+fallbackEmail;link.textContent=fallbackEmail;link.className='small-link';status.append(link,document.createTextNode('. Připravili jsme e-mail s vyplněnými údaji: '));const body=Object.entries(data).filter(([k])=>!['consent','form_type','website','started_at'].includes(k)).map(([k,v])=>k+': '+(Array.isArray(v)?v.join(', '):v)).join('\n');const mail=document.createElement('a');mail.href='mailto:'+fallbackEmail+'?subject='+encodeURIComponent(data.form_type==='partner'?'Registrace firmy na PoptejPlot.cz':'Poptávka oplocení')+'&body='+encodeURIComponent(body);mail.textContent='Otevřít připravený e-mail';mail.className='small-link';status.append(mail);}
     finally{button.disabled=false;button.textContent=form.dataset.buttonText||'Odeslat';}
   }
