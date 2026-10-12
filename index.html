@@ -361,7 +361,7 @@ body.launch-modal-open{overflow:hidden}
         const result=await response.json().catch(()=>({}));
         if(!response.ok||!result.id)throw new Error(result.error||'submit_failed');
         form.reset();selectedType=null;typeField.value='';subtype.innerHTML='<option value="">Nejprve vyberte typ plotu</option>';document.querySelectorAll('.fence-card').forEach(card=>card.setAttribute('aria-pressed','false'));document.getElementById('startedAt').value=String(Date.now());
-        status.className='status show success';status.textContent='Děkujeme. Poptávka byla bezpečně uložena do administrace PLOTAO.cz.';
+        status.className='status show success';status.textContent='Děkujeme. Poptávka byla uložena do administrace PLOTAO.cz. '+(result.email_sent?'Potvrzovací e-mail byl předán k odeslání.':'Potvrzovací e-mail se nepodařilo odeslat; poptávku evidujeme a ozveme se vám.');
       }catch(error){
         status.className='status show error';status.textContent='Odeslání se nepodařilo. Vaše údaje zůstaly ve formuláři; zkuste to prosím znovu.';
       }finally{button.disabled=false;button.innerHTML=buttonText}
