@@ -116,17 +116,6 @@
     .benefit-icon svg{width:34px;height:34px;fill:currentColor}
     .hero-benefit h2{margin:0 0 7px;color:#13241d;font-size:17px;line-height:1.18;letter-spacing:-.035em}
     .hero-benefit p{margin:0;color:#69736d;font-size:14px;line-height:1.42}
-    .quick-calculator{padding-top:48px}
-    .calculator-panel{max-width:760px;margin:25px auto 0;padding:24px;border:1px solid var(--line);border-radius:22px;background:#fff;box-shadow:var(--shadow)}
-    .calculator-fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    .calculator-fields label{display:grid;gap:7px;font-size:13px;font-weight:750}
-    .calculator-fields input,.calculator-fields select{width:100%;min-height:48px;border:1px solid #cbd6ce;border-radius:11px;padding:10px 12px;background:white;color:var(--ink)}
-    .calculator-result{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
-    .calculator-result>div{display:flex;align-items:baseline;gap:8px;padding:14px 16px;border-radius:13px;background:#f0f6f1}
-    .calculator-result strong{color:var(--green);font-size:30px;line-height:1}
-    .calculator-result span{color:#46564c;font-size:13px}
-    .calculator-note{color:var(--muted);font-size:13px;line-height:1.5}
-    .calculator-use{border:0}
     @media(max-width:760px){
       .container{width:calc(100% - 40px)}
       .header-row{height:72px}
@@ -168,7 +157,6 @@
       .hero-benefit{min-height:157px;padding:12px 10px}
       .hero-benefit h2{font-size:12px}
       .hero-benefit p{font-size:11px}
-      .calculator-panel{padding:18px}
     }
     @media(prefers-reduced-motion:reduce){.hero-action{transition:none}}
   </style>
@@ -257,20 +245,6 @@ body.launch-modal-open{overflow:hidden}
         <article class="hero-benefit"><span class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M8 10h25a6 6 0 0 1 6 6v12a6 6 0 0 1-6 6H21l-9 7v-7h-4a6 6 0 0 1-6-6V16a6 6 0 0 1 6-6Zm27 8h5a6 6 0 0 1 6 6v11a6 6 0 0 1-6 6h-3v5l-7-5h-7a6 6 0 0 1-5-3h10a9 9 0 0 0 9-9V18Z"/></svg></span><h2>Jednoduše popíšete</h2><p>Řekněte nám, co potřebujete a kde.</p></article>
         <article class="hero-benefit"><span class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 1280 736" aria-label="Mapa České republiky"><image href="https://plotao.cz/assets/czech-republic-regions.png" width="1280" height="736" preserveAspectRatio="xMidYMid meet" style="filter:brightness(0) saturate(100%) invert(24%) sepia(33%) saturate(1099%) hue-rotate(111deg) brightness(91%) contrast(93%)"/></svg></span><h2>Spojíme vás<br>s dodavateli</h2><p>Oslovíme ověřené firmy ve vašem kraji.</p></article>
         <article class="hero-benefit"><span class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="m5 25 9-9 8 2 5 5-3 3-5-3-3 2 8 8c1 1 3 1 4 0l12-11 6 6-14 14c-3 3-8 3-11 0L5 28c-1-1-1-2 0-3Z"/><path d="m25 12 5-5 4 2 4-1 6 7-4 4-6-5-4 3M9 18l-4-4 6-6 5 2 4-3 5 5-5 5"/></svg></span><h2>Získáte nabídky</h2><p>Porovnáte ceny a vyberete si tu nejlepší.</p></article>
-      </div>
-    </section>
-    <section class="section quick-calculator" id="kalkulacka">
-      <div class="container">
-        <div class="section-heading"><div class="eyebrow">Rychlý výpočet</div><h2>Kolik panelů budete potřebovat?</h2><p>Orientačně spočítáme standardní panelový plot s délkou pole 2,5 m.</p></div>
-        <div class="calculator-panel">
-          <div class="calculator-fields">
-            <label for="calcLength">Délka plotu (m)<input id="calcLength" type="number" min="1" max="1000" step="1" value="25" inputmode="numeric"></label>
-            <label for="calcType">Typ panelu<select id="calcType"><option value="Panelový 2D">Panelový plot 2D</option><option value="Panelový 3D">Panelový plot 3D</option></select></label>
-          </div>
-          <div class="calculator-result"><div><strong id="calcPanels">10</strong><span>panelů po 2,5 m</span></div><div><strong id="calcPosts">11</strong><span>sloupků bez bran</span></div></div>
-          <p class="calculator-note">Jde o orientační výpočet. Přesné množství závisí na branách, rohových sloupcích, sklonu pozemku a způsobu montáže.</p>
-          <button class="button calculator-use" id="useCalc" type="button">Použít v poptávce <span aria-hidden="true">→</span></button>
-        </div>
       </div>
     </section>
     <section class="section" id="typy">
@@ -406,34 +380,6 @@ body.launch-modal-open{overflow:hidden}
         status.className='status show error';status.textContent='Odeslání se nepodařilo. Vaše údaje zůstaly ve formuláři; zkuste to prosím znovu.';
       }finally{button.disabled=false;button.innerHTML=buttonText}
     });
-  </script>
-  <script>
-    (() => {
-      const length = document.getElementById('calcLength');
-      const type = document.getElementById('calcType');
-      const panelsOut = document.getElementById('calcPanels');
-      const postsOut = document.getElementById('calcPosts');
-      const useButton = document.getElementById('useCalc');
-      if (!length || !type || !panelsOut || !postsOut || !useButton) return;
-      const update = () => {
-        const metres = Math.max(1, Math.min(1000, Number(length.value) || 1));
-        const panels = Math.ceil(metres / 2.5);
-        panelsOut.textContent = String(panels);
-        postsOut.textContent = String(panels + 1);
-      };
-      length.addEventListener('input', update);
-      type.addEventListener('change', update);
-      useButton.addEventListener('click', () => {
-        const panelCard = [...document.querySelectorAll('.fence-card')].find(card => /Panelový plot/.test(card.querySelector('h3')?.textContent || ''));
-        panelCard?.click();
-        const subtype = document.getElementById('subtype');
-        const formLength = document.getElementById('length');
-        if (subtype) subtype.value = type.value;
-        if (formLength) formLength.value = length.value;
-        document.getElementById('formular')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-      update();
-    })();
   </script>
 
 <script id="site-launch-countdown-script">
