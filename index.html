@@ -361,6 +361,16 @@ body.launch-modal-open{overflow:hidden}
     }
     document.getElementById('menuButton').addEventListener('click',function(){const nav=document.getElementById('mainNav');const open=nav.classList.toggle('open');this.setAttribute('aria-expanded',String(open))});
     document.querySelectorAll('#mainNav a').forEach(a=>a.addEventListener('click',()=>{document.getElementById('mainNav').classList.remove('open');document.getElementById('menuButton').setAttribute('aria-expanded','false')}));
+    document.querySelectorAll('a[href="#typy"]').forEach(link=>link.addEventListener('click',event=>{
+      event.preventDefault();
+      const heading=document.querySelector('#typy .section-heading');
+      const header=document.querySelector('.site-header');
+      if(!heading)return;
+      const headerHeight=header?header.getBoundingClientRect().height:0;
+      const top=Math.max(0,window.scrollY+heading.getBoundingClientRect().top-headerHeight-12);
+      if(window.location.hash!=='#typy')history.pushState(null,'','#typy');
+      window.scrollTo({top,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+    }));
     document.getElementById('year').textContent=new Date().getFullYear();
     document.getElementById('startedAt').value=String(Date.now());
     form.addEventListener('submit',async event=>{
