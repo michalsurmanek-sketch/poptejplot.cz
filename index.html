@@ -114,6 +114,12 @@
     .hero-benefit{min-height:194px;padding:18px 20px 20px;border:1px solid #edf0ec;border-radius:20px;background:#fff;box-shadow:0 10px 26px #183b2810}
     .benefit-icon{width:54px;height:54px;display:grid;place-items:center;margin-bottom:13px;border-radius:50%;background:#e1f0e7;color:#126247}
     .benefit-icon svg{width:34px;height:34px;fill:currentColor}
+    @keyframes benefit-icon-pulse{0%,33.333%,100%{transform:scale(1)}16.667%{transform:scale(1.15)}}
+    .hero-benefits .benefit-icon svg{transform-origin:center;animation:benefit-icon-pulse 3s ease-in-out infinite}
+    .hero-benefits .hero-benefit:nth-child(2) .benefit-icon svg{animation-delay:1s}
+    .hero-benefits .hero-benefit:nth-child(3) .benefit-icon svg{animation-delay:2s}
+    @media(prefers-reduced-motion:reduce){.hero-benefits .benefit-icon svg{animation:none}}
+
     .hero-benefit h2{margin:0 0 7px;color:#13241d;font-size:17px;line-height:1.18;letter-spacing:-.035em}
     .hero-benefit p{margin:0;color:#69736d;font-size:14px;line-height:1.42}
     @media(max-width:760px){
